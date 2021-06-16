@@ -1,0 +1,88 @@
+.reveal {
+  position: relative;
+  width: 320px;
+  height: 180px;
+  border-radius: 4px;
+  background-image: url("../img/jpg/autumn-leaves-in-sunshine.jpg");
+  background-size: 320px 180px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: scale(0.9);
+  transition: transform 0.4s cubic-bezier(0, 0, 0.3, 1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    background-color: black;
+    box-shadow: 0 0 12px 6px black;
+    opacity: 0.4;
+  }
+
+  &:hover {
+    transform: scale(1);
+    
+    .reveal__title-overlay  {
+      transform: translateX(-50%) skew(-30deg);
+    }
+
+    .reveal__title-overlay-text {
+      transform: skew(30deg);
+    }
+
+    &::before {
+      transform: translateY(12px);
+      opacity: 0.2;
+    }
+  }
+}
+
+.reveal__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.reveal__title,
+.reveal__title-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  font-size: 40px;
+  color: white;
+}
+
+.reveal__title-overlay {
+  overflow: hidden;
+  top: calc(50% - 50px);
+  left: 50%;
+  z-index: 2;
+  height: 100px;
+  width: 405px;
+  font-size: 50px;
+  color: white;
+  background-color: rgb(32, 6, 6);
+  transform: translateX(-150%) skew(-30deg);
+  transition: transform 0.4s cubic-bezier(0, 0, 0.3, 1);
+}
+
+.reveal__title-overlay-text {
+  width: 100%;
+  text-align: center;
+  transform: translateX(100%) skew(30deg);
+  transition: transform 0.4s cubic-bezier(0, 0, 0.3, 1);
+}
